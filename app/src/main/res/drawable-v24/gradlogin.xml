@@ -1,0 +1,10 @@
+<shape xmlns:xmlsandroid="http://schemas.android.com/apk/res/android"
+    xmlsandroid:shape="rectangle">
+    <gradient
+        xmlsandroid:angle="90 "
+        xmlsandroid:endColor="@color/white"
+        xmlsandroid:startColor="@color/NTSAgreen"
+        xmlsandroid:type="linear"
+
+        />
+</shape>

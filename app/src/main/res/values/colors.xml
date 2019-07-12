@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FFFF</color>
+    <color name="NTSAgreen">#2E8B57</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightgreen">#90EE90</color>
+    <color name="crimson">#DC143C</color>
+    <color name="gold">#DAA520</color>
+</resources>
