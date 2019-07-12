@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+
 import android.location.Location;
 import com.google.android.gms.location.LocationListener;
 import android.os.Bundle;
@@ -19,7 +20,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class userlocationactivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -28,6 +32,7 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
     GoogleApiClient mApiClient;
     Location lastLocation;
     LocationRequest mlocationrequest;
+    Marker marker;
 
 
     @Override
@@ -45,6 +50,7 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
 
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
         }
@@ -64,18 +70,29 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
     public void onLocationChanged(Location location) {
         lastLocation = location;
         LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.clear();
+        //    mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        mMap.addMarker(new MarkerOptions()
+                .position(latlng)
+                .title("Melbourne")
+                .snippet("Population: 4,137,400")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.personmarker)));
+
+
     }
 
 
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+
         mlocationrequest = new LocationRequest();
-        mlocationrequest.setInterval(100);
-        mlocationrequest.setFastestInterval(100);
+        mlocationrequest.setInterval(1000);
+        mlocationrequest.setFastestInterval(1000);
         mlocationrequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
