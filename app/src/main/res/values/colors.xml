@@ -8,4 +8,5 @@
     <color name="lightgreen">#90EE90</color>
     <color name="crimson">#DC143C</color>
     <color name="gold">#DAA520</color>
+    <color name="black">#000</color>
 </resources>
