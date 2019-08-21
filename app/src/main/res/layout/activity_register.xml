@@ -47,6 +47,7 @@
             app:layout_constraintVertical_bias="0.06">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fname"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:hint="First Name"
@@ -71,6 +72,7 @@
             app:layout_constraintVertical_bias="0.068" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Laname"
             android:layout_width="267dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -87,6 +89,7 @@
             app:layout_constraintVertical_bias="0.06">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Last Name"
@@ -127,6 +130,7 @@
             app:layout_constraintVertical_bias="0.06">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Email"
@@ -168,6 +172,7 @@
             app:layout_constraintVertical_bias="0.06">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwrd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="password"
@@ -225,6 +230,7 @@
             app:layout_constraintVertical_bias="0.06">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pnumber"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Phone number"

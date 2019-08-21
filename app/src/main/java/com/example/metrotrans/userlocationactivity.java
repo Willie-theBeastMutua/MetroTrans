@@ -71,9 +71,9 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
         lastLocation = location;
         LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.clear();
-        //    mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
         mMap.addMarker(new MarkerOptions()
                 .position(latlng)
                 .title("Melbourne")
