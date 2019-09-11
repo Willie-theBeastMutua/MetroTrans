@@ -129,7 +129,7 @@ public class register extends AppCompatActivity {
                              phonenum,
                             role
                             );
-                            FirebaseDatabase.getInstance().getReference("Commuters")
+                            FirebaseDatabase.getInstance().getReference()
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(comm)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -155,7 +155,7 @@ public class register extends AppCompatActivity {
                                    phonenum,
                                    role
                            );
-                           FirebaseDatabase.getInstance().getReference("Drivers")
+                           FirebaseDatabase.getInstance().getReference()
                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(driver)
                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                @Override

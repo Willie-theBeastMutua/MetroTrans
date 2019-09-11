@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">MetroTrans</string>
     <string name="title_activity_userlocationactivity">Map</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string-array name="roleSpinnerArray">
         <item>Driver</item>
         <item>Commuter</item>
     </string-array>
+    <string name="title_activity_driverlocation">Map</string>
 </resources>
