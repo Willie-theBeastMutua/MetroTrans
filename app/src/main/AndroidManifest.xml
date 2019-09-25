@@ -30,10 +30,13 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".schedulemap"
+            android:label="@string/title_activity_schedulemap"></activity>
+        <activity android:name=".viewschedules" />
+        <activity android:name=".addschedule" />
+        <activity
             android:name=".driverlocation"
-            android:label="@string/title_activity_driverlocation">
-
-        </activity>
+            android:label="@string/title_activity_driverlocation" />
         <activity android:name=".register" />
         <activity
             android:name=".userlocationactivity"
