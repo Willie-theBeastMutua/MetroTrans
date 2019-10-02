@@ -24,6 +24,7 @@ import android.content.pm.PackageManager;
 
 import android.location.Location;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
@@ -54,10 +55,14 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
 
     private GoogleMap mMap;
     public String id;
+    public  String seatsA;
        GoogleApiClient mApiClient;
     Location lastLocation;
     LocationRequest mlocationrequest;
-    Marker marker;
+    Button distancebut;
+    Button seats;
+    public String Regno;
+        Marker marker;
     Location Driverloc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +71,9 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         Intent intent = getIntent();
         if(intent != null){
            id = intent.getStringExtra("uid");
+           seatsA = intent.getStringExtra("seats");
+           Regno = intent.getStringExtra("Reg");
+
 
 
 
@@ -74,7 +82,9 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        distancebut = findViewById(R.id.button4);
+        seats = findViewById(R.id.button5);
+        seats.setText("Seats Available are : " + seatsA);
 
     }
 
@@ -105,7 +115,7 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         mMap.clear();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
 
       getDriver();
 
@@ -134,7 +144,7 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         DatabaseReference driverloc = FirebaseDatabase.getInstance().getReference("Driver locations");
 
         GeoFire geodrive= new GeoFire(driverloc);
-        GeoQuery drivlocquery = geodrive.queryAtLocation(new GeoLocation(lastLocation.getLatitude(),lastLocation.getLongitude()), 1000);
+        GeoQuery drivlocquery = geodrive.queryAtLocation(new GeoLocation(lastLocation.getLatitude(),lastLocation.getLongitude()), 10);
 
         drivlocquery.addGeoQueryEventListener(new GeoQueryEventListener() {
 
@@ -152,9 +162,12 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
                 float distance = loc1.distanceTo(loc2);
                 float time = loc1.getTime();
                 String times = Float.toString(time);
+                int dist = Math.round(distance);
                 Log.w("timessssss", times);
                 String distances = Float.toString(distance);
                 Log.w("the distance",distances);
+                int  eta = (dist/5);
+                distancebut.setText("Bus " + Regno + " is " +dist + " M Away : ETA "+eta + "s" );
                 driversmarkers.setTitle(distance+"m");
                 markerList.add(driversmarkers);
             }

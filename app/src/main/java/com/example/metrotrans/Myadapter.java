@@ -17,7 +17,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.myviewholder> {
 private Context context;
 ArrayList<schedule> scheduleview;
     public String UserId;
+    public String seatavailable;
     public Intent intent;
+    public String RegNo;
 public Myadapter(Context c, ArrayList<schedule> s){
     context = c;
     scheduleview = s;
@@ -40,10 +42,14 @@ public Myadapter(Context c, ArrayList<schedule> s){
     holder.time.setText("Departure Time: "+scheduleview.get(position).getTimer());
 
         UserId = scheduleview.get(position).getUserid();
+        seatavailable = scheduleview.get(position).getSeatsno();
+        RegNo = scheduleview.get(position).getVehregno();
     holder.cards.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             intent.putExtra("uid",UserId);
+            intent.putExtra("seats", seatavailable);
+            intent.putExtra("Reg", RegNo);
         context.startActivity(intent);
         }
     });

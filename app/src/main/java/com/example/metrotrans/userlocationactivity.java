@@ -103,7 +103,7 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
 
         mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
 
-        getDriversAround();
+        //getDriversAround();
 
 
     }
@@ -128,7 +128,7 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
     }
     boolean getDriversAroundstarted= false;
     List<Marker> markerList= new ArrayList<Marker>();
-    private  void getDriversAround(){
+   /** private  void getDriversAround(){
         getDriversAroundstarted = true;
         DatabaseReference driverloc = FirebaseDatabase.getInstance().getReference("Driver locations");
         GeoFire geodrive= new GeoFire(driverloc);
@@ -176,7 +176,7 @@ public class userlocationactivity extends FragmentActivity implements OnMapReady
             }
         });
     }
-
+**/
     @Override
     public void onConnectionSuspended(int i) {
 
