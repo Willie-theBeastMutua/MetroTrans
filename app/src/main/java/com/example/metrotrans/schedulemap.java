@@ -24,6 +24,7 @@ import android.content.pm.PackageManager;
 
 import android.location.Location;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
     LocationRequest mlocationrequest;
     Button distancebut;
     Button seats;
+    Button book;
     public String Regno;
         Marker marker;
     Location Driverloc;
@@ -85,7 +87,13 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         distancebut = findViewById(R.id.button4);
         seats = findViewById(R.id.button5);
         seats.setText("Seats Available are : " + seatsA);
-
+        book = findViewById(R.id.button6);
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(schedulemap.this, BookSeats.class));
+            }
+        });
     }
 
     @Override
