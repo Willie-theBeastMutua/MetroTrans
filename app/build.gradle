@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.example.metrotrans"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -36,5 +36,12 @@ dependencies {
     //implementation 'com.firebase:geofire:1.1.1'
     implementation 'com.firebase:geofire-android:3.0.0'
     implementation 'com.google.firebase:firebase-core:9.4.0'
+    implementation 'com.androidstudy:daraja:1.0.2'
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    implementation 'com.google.android.libraries.places:places:2.0.0'
+    //implementation 'com.google.android.libraries.places:places-compat:2.0.0'
+    implementation 'com.google.android.gms:play-services-places:16.0.0';
+    //implementation 'com.google.android.libraries.places:places-compat:1.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
 }

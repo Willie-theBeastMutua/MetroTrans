@@ -73,4 +73,8 @@
     </string-array>
     <string name="title_activity_driverlocation">Map</string>
     <string name="title_activity_schedulemap">Map</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="request_mpesaexpress">Request MPESAExpress</string>
+    <string name="places_api_key">AIzaSyD-diriaQMFUArVpjTpwIhVPK-0QkrrRVA</string>
+    <string name="title_activity_route_map">Map</string>
 </resources>

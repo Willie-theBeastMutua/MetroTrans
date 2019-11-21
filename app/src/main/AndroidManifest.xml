@@ -30,8 +30,18 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".routeMap"
+            android:label="@string/title_activity_route_map"></activity>
+        <activity android:name=".destbutton" />
+        <activity android:name=".destinationpicker" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
             android:name=".schedulemap"
-            android:label="@string/title_activity_schedulemap"></activity>
+            android:label="@string/title_activity_schedulemap" />
         <activity android:name=".viewschedules" />
         <activity android:name=".addschedule" />
         <activity
@@ -48,8 +58,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BookSeats">
-        </activity>
+        <activity android:name=".BookSeats" />
+        <activity android:name=".MPESAExpressActivity" />
     </application>
 
 </manifest>

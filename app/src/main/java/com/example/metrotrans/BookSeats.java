@@ -1,6 +1,8 @@
 package com.example.metrotrans;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,12 @@ public class BookSeats extends AppCompatActivity implements OnSeatSelected {
         setContentView(R.layout.activity_bookseats);
 
         txtSeatSelected = (TextView)findViewById(R.id.txt_seat_selected);
+        txtSeatSelected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BookSeats.this, destinationpicker.class));
+            }
+        });
 
         List<AbstractItem> items = new ArrayList<>();
         for (int i=0; i<30; i++) {

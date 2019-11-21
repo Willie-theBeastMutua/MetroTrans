@@ -61,6 +61,7 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
     Location lastLocation;
     LocationRequest mlocationrequest;
     Button distancebut;
+
     Button seats;
     Button book;
     public String Regno;
