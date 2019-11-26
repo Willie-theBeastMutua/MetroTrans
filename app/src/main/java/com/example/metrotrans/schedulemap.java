@@ -43,6 +43,7 @@ import com.google.android.gms.location.LocationServices;
 
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -61,10 +62,12 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
     Location lastLocation;
     LocationRequest mlocationrequest;
     Button distancebut;
+    private FirebaseAuth mAuth;
 
     Button seats;
     Button book;
     public String Regno;
+    public String uid;
         Marker marker;
     Location Driverloc;
     @Override
@@ -92,7 +95,11 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(schedulemap.this, BookSeats.class));
+               uid= mAuth.getInstance().getCurrentUser().getUid().toString();
+                Intent i = new Intent(schedulemap.this, BookSeats.class);
+                i.putExtra("uid",uid);
+                Log.w("userid", uid);
+                startActivity(i);
             }
         });
     }
@@ -146,8 +153,8 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
 
     }
     boolean getDriversAroundstarted= false;
-    List<Marker> markerList= new ArrayList<Marker>();
-    private  void getDriver(){
+        List<Marker> markerList= new ArrayList<Marker>();
+        private  void getDriver(){
         getDriversAroundstarted = true;
 
         DatabaseReference driverloc = FirebaseDatabase.getInstance().getReference("Driver locations");
@@ -169,6 +176,7 @@ public class schedulemap extends FragmentActivity implements OnMapReadyCallback,
                 loc2.setLatitude(location.latitude);
                 loc2.setLongitude(location.longitude);
                 float distance = loc1.distanceTo(loc2);
+               // float distance = loc1.distanceTo(loc2);
                 float time = loc1.getTime();
                 String times = Float.toString(time);
                 int dist = Math.round(distance);

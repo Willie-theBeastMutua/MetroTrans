@@ -1,9 +1,22 @@
 package com.example.metrotrans;
 
+import android.os.Message;
 import android.util.Log;
+import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +26,21 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
 	private static final String TAG = SelectableAdapter.class.getSimpleName();
 
 	private SparseBooleanArray selectedItems;
-
+	DatabaseReference reference;
+	private FirebaseAuth mAuth;
+	private String selseats;
+	private JSONArray jsonArray;
+	private SparseBooleanArray setsele;
+	private int seatssel;
+	ArrayList<seatClass> sched;
 	public SelectableAdapter() {
 		selectedItems = new SparseBooleanArray ();
-		selectedItems.append(5,true);
+
+					selectedItems.append(1 , true);
+
+
+
+
 	}
 
 	/**
@@ -43,9 +67,14 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
 
 
 		}
-        String areay = selectedItems.toString();
+        String areay = Integer.toString(position);
         Log.w("Array", areay);
 		notifyItemChanged(position);
+		seatClass seat = new seatClass(
+			areay
+		);
+		FirebaseDatabase.getInstance().getReference().child("Seat").push().setValue(seat);
+
 	}
 
 	/**

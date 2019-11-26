@@ -81,6 +81,9 @@ public class driverlocation extends AppCompatActivity implements OnMapReadyCallb
         if(id == R.id.nav_account){
             startActivity(new Intent(driverlocation.this, addschedule.class));
         }
+        else if (id == R.id.nav_accounts){
+            startActivity(new Intent(driverlocation.this, Main2Activity.class));
+        }
         return false;
     }
 

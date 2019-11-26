@@ -4,7 +4,7 @@
          android:icon="@mipmap/schedule"
          android:title="add schedule"/>
     <item android:id="@+id/nav_accounts"
-        android:title="my account"/>
+        android:title="View Passengers"/>
     <item android:id="@+id/nav_accountz"
         android:title="my account"/>
 

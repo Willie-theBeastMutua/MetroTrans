@@ -19,6 +19,9 @@ import com.androidstudy.daraja.model.LNMExpress;
 import com.androidstudy.daraja.model.LNMResult;
 import com.androidstudy.daraja.util.TransactionType;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -87,7 +90,14 @@ public class MPESAExpressActivity extends AppCompatActivity {
                             @Override
                             public void onResult(@NonNull LNMResult lnmResult) {
                                 //Log.i(MPESAExpressActivity.this.getClass().getSimpleName(), lnmResult.ResponseDescription);
+                                new Timer().schedule(new TimerTask(){
+                                    public void run() {
+                                        startActivity(new Intent(MPESAExpressActivity.this, destinationpicker.class));
+                                        finish();
 
+                                        Log.d("MainActivity:", "onCreate: waiting 5 seconds for MainActivity... loading PrimaryActivity.class");
+                                    }
+                                }, 5000 );
 
                             }
 

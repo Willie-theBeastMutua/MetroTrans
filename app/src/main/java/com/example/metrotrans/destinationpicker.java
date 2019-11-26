@@ -57,6 +57,7 @@ public class destinationpicker extends FragmentActivity implements OnMapReadyCal
     public Button setbutton;
     public String mylat;
     public String myLong;
+    public String myname;
 
 
     @Override
@@ -94,6 +95,7 @@ public class destinationpicker extends FragmentActivity implements OnMapReadyCal
                     String longitude = String.valueOf( place.getLatLng().longitude);
                     mylat = latitude;
                     myLong =longitude;
+                    myname = place.getName();
                     Log.w("latitude", latitude);
                     Log.w("longitude", longitude);
 
@@ -105,6 +107,8 @@ public class destinationpicker extends FragmentActivity implements OnMapReadyCal
                             Intent i = new Intent(destinationpicker.this, routeMap.class);
                             i.putExtra("latitude",mylat);
                             i.putExtra("longitude", myLong);
+                            i.putExtra("Name", myname);
+
                             startActivity(i);
 
                         }
